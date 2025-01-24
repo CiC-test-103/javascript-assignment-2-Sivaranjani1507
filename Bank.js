@@ -32,7 +32,8 @@ class Account {
         }else{
             console.log("Invalid Input")
         }
-        this.transactionHistory.push({ transactionType: 'Deposit', amount})
+        this.transactionHistory.push({ transactionType: 'Deposit', amount: amount});
+     
     }
 
     withdraw(amount){
@@ -43,14 +44,14 @@ class Account {
             console.log("Insufficient Balance")
 
             }
-        this.transactionHistory.push({ transactionType : 'Withdrawal' , amount})
+        this.transactionHistory.push({ transactionType : 'Withdrawal' , amount :amount})
     }
     transfer (amount, recipientAccount){
         if (amount >0 && this.balance >= amount ){
             this.balance -= amount ;
             recipientAccount.balance +=amount;
-            this.transactionHistory.push({transactionType : 'Transfer', amount , to: recipientAccount.name})
-            
+            this.transactionHistory.push({transactionType : 'Transfer', amount: amount , to: recipientAccount.name})
+            this.transactionHistory.push({transactionType : 'Received', amount: amount , to: this.name })
         }
         else{
             console.log("Insufficient funds")
