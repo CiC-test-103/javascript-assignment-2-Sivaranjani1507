@@ -43,7 +43,7 @@ class Account {
             console.log("Insufficient Balance")
 
             }
-        this.transactionHistory.push({ transactionType : 'Withdraw' , amount})
+        this.transactionHistory.push({ transactionType : 'Withdrawal' , amount})
     }
     transfer (amount, recipientAccount){
         if (amount >0 && this.balance >= amount ){
